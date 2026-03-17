@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Ezra Myers</title>
+
+<style>
+html {
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
+body {
+  margin: 0;
+  background: #f6f6f4;
+  font-family: "Times New Roman", serif;
+  color: #2f2f2f;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+body.fade-in {
+  opacity: 1;
+}
+
+nav {
+  text-align: center;
+  padding: 28px 0 22px;
+  letter-spacing: 2px;
+  font-size: 11px;
+}
+
+nav a {
+  margin: 0 18px;
+  text-decoration: none;
+  color: #8a8a8a;
+  font-weight: 400;
+}
+
+nav a.active {
+  color: #1f1f1f;
+}
+
+.content {
+  max-width: 500px;
+  margin: 150px auto 0;
+  padding: 0 24px 100px;
+  text-align: center;
+}
+
+p {
+  margin: 0 0 32px;
+  font-size: 17px;
+  line-height: 2;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html">HOME</a>
+  <a href="works.html">WORKS</a>
+  <a href="about.html" class="active">ABOUT</a>
+  <a href="contact.html">CONTACT</a>
+</nav>
+
+<div class="content">
+  <p>Ezra Myers is a contemporary artist working across drawing and mixed media.</p>
+
+  <p>His practice is rooted in raw mark-making, using ink, charcoal, and collage to construct layered figurative works.</p>
+
+  <p>Through hyper-controlled realism and embedded symbolism, the work explores identity, mythology, and inherited memory.</p>
+
+  <p>Each piece functions as both portrait and structure, revealing narratives shaped by distortion, presence, and cultural memory.</p>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("fade-in");
+});
+
+document.querySelectorAll('a').forEach(link => {
+  const href = link.getAttribute('href');
+  if (!href || href.startsWith('mailto:') || href.startsWith('#')) return;
+
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = this.href;
+    document.body.classList.remove('fade-in');
+    setTimeout(() => {
+      window.location.href = target;
+    }, 300);
+  });
+});
+</script>
+
+</body>
+</html>
