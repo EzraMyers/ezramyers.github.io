@@ -466,6 +466,14 @@
 
   .work-image-placeholder img { width: 100%; height: 100%; object-fit: cover; }
 
+  .work-image-wide.paper-blend {
+    background: var(--cream);
+  }
+
+  .paper-blend img {
+    mix-blend-mode: multiply;
+  }
+
   .work-image-placeholder span {
     font-family: var(--font-display);
     font-size: 11px;
@@ -1122,8 +1130,8 @@
 
       <!-- Work 3 -->
       <div class="work-item">
-        <div class="work-image-placeholder work-image-wide">
-          <img src="jay-web.jpg" alt="Jay by Ezra Myers" width="1009" height="1400" loading="lazy" decoding="async">
+        <div class="work-image-placeholder work-image-wide paper-blend">
+          <img src="jay-web.jpg" alt="Jay by Ezra Myers" width="912" height="1300" loading="lazy" decoding="async">
         </div>
         <div class="work-meta">
           <h2 class="work-title">Jay</h2>
