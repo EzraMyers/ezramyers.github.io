@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ezra Myers, British Caribbean Artist</title>
+<meta name="description" content="Ezra Myers is a British Caribbean artist working across drawing, collage and moving image. His practice explores Afro diasporic folklore, inherited memory and ancestral presence. Solo exhibition Laws of Folk, October 2026.">
+<meta property="og:title" content="Ezra Myers, British Caribbean Artist">
+<meta property="og:description" content="Laws of Folk, a major solo exhibition exploring Afro diasporic folklore, memory and cultural inheritance. October 2026.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="pay-the-devil-hero-site.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://www.ezramyers.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preload" as="image" href="pay-the-devil-hero-site.jpg" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  img { display: block; max-width: 100%; }
+  a, button { color: inherit; }
+
+  .skip-link { position: fixed; top: 12px; left: 12px; z-index: 200; transform: translateY(-140%); padding: 10px 14px; background: var(--black); color: var(--off-white); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; transition: transform 0.2s ease; }
+  .skip-link:focus { transform: translateY(0); }
+
+  :root {
+    --black: #0A0A0A;
+    --off-white: #F5F2ED;
+    --gold: #B8955A;
+    --gold-light: #D4B483;
+    --mid: #6B6460;
+    --rule: #2A2520;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+  }
+
+  body {
+    background: var(--off-white);
+    color: var(--black);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 40px;
+    background: rgba(245, 242, 237, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 0.5px solid rgba(184, 149, 90, 0.25);
+  }
+
+  .nav-name {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active,
+  .nav-links a[aria-current="page"] { color: var(--black); }
+
+  :focus-visible { outline: 1px solid var(--gold); outline-offset: 5px; }
+
+  /* ── PAGES ── */
+  .page { padding-top: 80px; min-height: 100vh; }
+  .page[hidden] { display: none; }
+
+  /* ── GOLD RULE ── */
+  .rule {
+    width: 100%;
+    height: 0.5px;
+    background: var(--gold);
+    opacity: 0.6;
+  }
+
+  .rule-short {
+    width: 48px;
+    height: 0.5px;
+    background: var(--gold);
+    margin: 0 auto 32px;
+  }
+
+  /* ── TEXT CONTAINERS ── */
+  .text-block {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .text-wide {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* ── LABELS ── */
+  .label {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  /* ── DISPLAY TYPE ── */
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 300;
+  }
+
+  h1 { font-size: clamp(42px, 6vw, 80px); line-height: 1.05; letter-spacing: 0; }
+  h2 { font-size: clamp(28px, 4vw, 48px); line-height: 1.1; }
+  h3 { font-size: clamp(20px, 2.5vw, 28px); line-height: 1.2; }
+
+  p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--black);
+  }
+
+  p + p { margin-top: 1.2em; }
+
+  /* ── SECTIONS ── */
+  section { padding: 80px 0; }
+  section + section { border-top: none; }
+
+  /* ── HOME PAGE ── */
+  .hero {
+    position: relative;
+    height: calc(100vh - 80px);
+    overflow: hidden;
+    background: var(--black);
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    opacity: 0.85;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(10,10,10,0.75) 0%,
+      rgba(10,10,10,0.1) 50%,
+      transparent 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 40px 11vh;
+    width: 100%;
+    max-width: min(520px, 42vw);
+  }
+
+  .hero-content h1 {
+    color: var(--off-white);
+    font-size: clamp(48px, 7vw, 96px);
+    font-weight: 300;
+    margin-bottom: 16px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-positioning {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2vw, 24px);
+    font-weight: 300;
+    color: rgba(245,242,237,0.88);
+    max-width: 460px;
+    line-height: 1.4;
+    margin-bottom: 40px;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .hero-link {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    text-decoration: none;
+    border-bottom: 0.5px solid rgba(184,149,90,0.4);
+    padding-bottom: 4px;
+    transition: color 0.2s, border-color 0.2s;
+    cursor: pointer;
+  }
+
+  .hero-link:hover {
+    color: var(--off-white);
+    border-color: rgba(245,242,237,0.5);
+  }
+
+  .home-intro {
+    padding: 100px 0;
+  }
+
+  .home-intro p {
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2.2vw, 26px);
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--black);
+  }
+
+  .home-three-routes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 0.5px solid var(--gold);
+    border-bottom: 0.5px solid var(--gold);
+  }
+
+  .route-item {
+    width: 100%;
+    padding: 48px 40px;
+    border: 0;
+    border-right: 0.5px solid rgba(184,149,90,0.3);
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.2s;
+  }
+
+  .route-item:last-child { border-right: none; }
+  .route-item:hover, .route-item:focus-visible { background: rgba(184,149,90,0.04); }
+
+  .route-number {
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .route-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--black);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .route-desc {
+    font-size: 16px;
+    color: var(--mid);
+    line-height: 1.65;
+  }
+
+  /* ── LAWS OF FOLK PAGE ── */
+  .lof-hero {
+    padding: 100px 0 80px;
+    text-align: center;
+    border-bottom: 0.5px solid rgba(184,149,90,0.3);
+  }
+
+  .lof-hero h1 {
+    font-size: clamp(52px, 8vw, 110px);
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+
+  .lof-subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(16px, 1.6vw, 19px);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--mid);
+    letter-spacing: 0.04em;
+  }
+
+  .lof-meta {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin-top: 48px;
+    flex-wrap: wrap;
+  }
+
+  .lof-meta-item {
+    text-align: center;
+  }
+
+  .lof-meta-item .label { margin-bottom: 8px; }
+
+  .lof-meta-value {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--black);
+  }
+
+  .statement-section {
+    padding: 100px 0;
+  }
+
+  .statement-section p {
+    font-family: var(--font-display);
+    font-size: clamp(17px, 2vw, 22px);
+    font-weight: 300;
+    line-height: 1.75;
+  }
+
+  .context-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    padding: 80px 0;
+    border-top: 0.5px solid rgba(184,149,90,0.3);
+  }
+
+  .context-col h3 {
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 24px;
+    color: var(--black);
+  }
+
+  .context-col p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--black);
+  }
+
+  .why-now {
+    padding: 100px 0;
+    text-align: center;
+    border-top: 0.5px solid rgba(184,149,90,0.3);
+    background: var(--black);
+    color: var(--off-white);
+  }
+
+  .why-now .label { color: var(--gold); }
+
+  .why-now h2 {
+    color: var(--off-white);
+    font-size: clamp(28px, 4vw, 52px);
+    margin-bottom: 40px;
+  }
+
+  .why-now p {
+    color: rgba(245,242,237,0.8);
+    max-width: 640px;
+    margin: 0 auto;
+    font-family: var(--font-display);
+    font-size: clamp(16px, 1.8vw, 20px);
+    font-weight: 300;
+    line-height: 1.75;
+  }
+
+  .programme-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 0.5px solid rgba(184,149,90,0.3);
+    border-left: 0.5px solid rgba(184,149,90,0.3);
+    margin-top: 60px;
+  }
+
+  .programme-item {
+    padding: 40px;
+    border-right: 0.5px solid rgba(184,149,90,0.3);
+    border-bottom: 0.5px solid rgba(184,149,90,0.3);
+  }
+
+  .programme-item h3 {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--black);
+    margin-bottom: 12px;
+  }
+
+  .programme-item p {
+    font-size: 16px;
+    color: var(--mid);
+    line-height: 1.75;
+  }
+
+  /* ── WORKS PAGE ── */
+  .works-series-header {
+    padding: 60px 0 32px;
+    border-bottom: 0.5px solid var(--gold);
+  }
+
+  .works-series-header h2 {
+    font-size: clamp(24px, 3vw, 38px);
+    font-weight: 300;
+  }
+
+  .work-item {
+    padding: 72px 0;
+    display: grid;
+    grid-template-columns: minmax(280px, 5fr) minmax(0, 7fr);
+    gap: 80px;
+    align-items: start;
+    border-bottom: 0.5px solid rgba(184,149,90,0.2);
+  }
+
+  .work-image-placeholder {
+    width: 100%;
+    aspect-ratio: 2/3;
+    background: var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .work-image-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+
+  .work-image-wide.paper-blend {
+    background: var(--cream);
+  }
+
+  .paper-blend img {
+    mix-blend-mode: multiply;
+  }
+
+  .work-image-placeholder span {
+    font-family: var(--font-display);
+    font-size: 12px;
+    color: var(--mid);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .work-image-wide {
+    aspect-ratio: 3/4;
+    background: #1A1614;
+  }
+
+  .work-meta { padding-top: 8px; }
+
+  .work-title {
+    font-family: var(--font-display);
+    font-size: clamp(34px, 4vw, 52px);
+    font-weight: 400;
+    margin-bottom: 12px;
+    line-height: 1.05;
+  }
+
+  .work-details {
+    font-size: 16px;
+    color: var(--mid);
+    line-height: 1.85;
+    margin-bottom: 32px;
+    border-bottom: 0.5px solid rgba(184,149,90,0.25);
+    padding-bottom: 28px;
+  }
+
+  .work-details span { display: block; }
+
+  .work-text {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--black);
+  }
+
+  .work-status {
+    display: inline-block;
+    margin-top: 24px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 0.5px solid rgba(184,149,90,0.4);
+    padding: 6px 14px;
+  }
+
+  .artist-note {
+    margin-top: 34px;
+    padding-top: 28px;
+    border-top: 0.5px solid rgba(184,149,90,0.25);
+  }
+
+  .artist-note .label {
+    margin-bottom: 18px;
+  }
+
+  .artist-note p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--black);
+  }
+
+  .artist-note p + p {
+    margin-top: 1em;
+  }
+
+  .artist-note .note-lead {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 300;
+    line-height: 1.35;
+  }
+
+  .works-note-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 0.5px solid rgba(184,149,90,0.3);
+    border-left: 0.5px solid rgba(184,149,90,0.3);
+  }
+
+  .works-note {
+    padding: 36px;
+    border-right: 0.5px solid rgba(184,149,90,0.3);
+    border-bottom: 0.5px solid rgba(184,149,90,0.3);
+  }
+
+  .works-note h3 {
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+
+  .works-note .work-details {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+
+  .works-note p {
+    font-size: 16px;
+    color: var(--mid);
+    line-height: 1.75;
+  }
+
+  /* ── RECOGNITION PAGE ── */
+  .recognition-intro {
+    padding: 80px 0 60px;
+    border-bottom: 0.5px solid rgba(184,149,90,0.3);
+  }
+
+  .recognition-intro p {
+    font-family: var(--font-display);
+    font-size: clamp(17px, 2vw, 22px);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .recognition-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 0;
+  }
+
+  .recognition-category {
+    padding: 56px 0;
+    border-bottom: 0.5px solid rgba(184,149,90,0.2);
+  }
+
+  .recognition-category-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    position: sticky;
+    top: 100px;
+  }
+
+  .recognition-items {
+    padding: 56px 0 56px 60px;
+    border-bottom: 0.5px solid rgba(184,149,90,0.2);
+    border-left: 0.5px solid rgba(184,149,90,0.3);
+  }
+
+  .recognition-item {
+    margin-bottom: 36px;
+    padding-bottom: 36px;
+    border-bottom: 0.5px solid rgba(184,149,90,0.12);
+  }
+
+  .recognition-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .recognition-item-name {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--black);
+    margin-bottom: 6px;
+  }
+
+  .recognition-item-detail {
+    font-size: 16px;
+    color: var(--mid);
+    line-height: 1.7;
+  }
+
+  .recognition-figure {
+    max-width: 620px;
+    margin: 0;
+  }
+
+  .recognition-figure img {
+    width: 100%;
+    height: auto;
+    border: 0.5px solid rgba(184,149,90,0.45);
+  }
+
+  .recognition-figure figcaption {
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--black);
+  }
+
+  .recognition-figure p {
+    margin-top: 12px;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--mid);
+  }
+
+  /* ── RESEARCH PAGE ── */
+  .research-intro {
+    padding: 80px 0 60px;
+    border-bottom: 0.5px solid rgba(184,149,90,0.3);
+  }
+
+  .research-section {
+    padding: 72px 0;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 0;
+    border-bottom: 0.5px solid rgba(184,149,90,0.2);
+    align-items: start;
+  }
+
+  .research-section-title {
+    padding-right: 60px;
+  }
+
+  .research-section-title h3 {
+    font-size: clamp(18px, 2vw, 24px);
+    font-weight: 400;
+    line-height: 1.3;
+    position: sticky;
+    top: 100px;
+  }
+
+  .research-section-body {
+    padding-left: 60px;
+    border-left: 0.5px solid rgba(184,149,90,0.3);
+  }
+
+  .research-section-body p {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--black);
+  }
+
+  .research-section-body p + p { margin-top: 1.3em; }
+
+  /* ── ABOUT PAGE ── */
+  .about-layout {
+    padding: 100px 0;
+    display: grid;
+    grid-template-columns: minmax(280px, 5fr) minmax(0, 7fr);
+    gap: 100px;
+    align-items: start;
+  }
+
+  .about-image-placeholder {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--rule);
+    display: flex;
+    align-items: flex-end;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .about-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .about-image-placeholder span {
+    font-size: 12px;
+    color: var(--mid);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .about-text p {
+    font-size: 16px;
+    line-height: 1.85;
+    margin-bottom: 1.4em;
+    color: var(--black);
+  }
+
+  .about-cv-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 32px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--black);
+    text-decoration: none;
+    border-bottom: 0.5px solid var(--gold);
+    padding-bottom: 4px;
+  }
+
+  /* ── CONTACT PAGE ── */
+  .contact-layout {
+    padding: 100px 0;
+    display: grid;
+    grid-template-columns: minmax(280px, 5fr) minmax(0, 7fr);
+    gap: 100px;
+  }
+
+  .contact-intro h2 {
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 300;
+    margin-bottom: 32px;
+    line-height: 1.15;
+  }
+
+  .contact-intro p {
+    font-size: 16px;
+    color: var(--mid);
+    line-height: 1.85;
+    max-width: 380px;
+  }
+
+  .contact-email-block {
+    margin-top: 48px;
+    padding-top: 40px;
+    border-top: 0.5px solid var(--gold);
+  }
+
+  .contact-email {
+    font-family: var(--font-body);
+    font-size: clamp(14px, 1.5vw, 18px);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--black);
+    text-decoration: none;
+    border-bottom: 0.5px solid rgba(184,149,90,0.4);
+    padding-bottom: 4px;
+    display: inline-block;
+    transition: border-color 0.2s;
+  }
+
+  .contact-email:hover { border-color: var(--gold); }
+
+  .contact-categories {
+    padding-top: 12px;
+  }
+
+  .contact-cat {
+    padding: 28px 0;
+    border-bottom: 0.5px solid rgba(184,149,90,0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .contact-cat-name {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--black);
+  }
+
+  .contact-cat-route {
+    font-size: 14px;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 48px 40px;
+    border-top: 0.5px solid var(--gold);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p {
+    font-size: 13px;
+    color: var(--mid);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── UTILITY ── */
+  .gold-accent {
+    color: var(--gold);
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      padding: 16px 20px 14px;
+      gap: 0;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+    .nav-name {
+      white-space: nowrap;
+      margin-bottom: 12px;
+    }
+    .nav-links {
+      width: 100%;
+      gap: 22px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+    }
+    .nav-links::-webkit-scrollbar { display: none; }
+    .nav-links a { font-size: 12px; letter-spacing: 0.06em; white-space: nowrap; }
+    .page { padding-top: 106px; }
+    .text-block, .text-wide { padding: 0 20px; }
+    section { padding: 60px 0; }
+    .home-three-routes { grid-template-columns: 1fr; }
+    .route-item { border-right: none; border-bottom: 0.5px solid rgba(184,149,90,0.3); }
+    .route-item:last-child { border-bottom: none; }
+    .context-grid { grid-template-columns: 1fr; gap: 40px; }
+    .work-item { grid-template-columns: 1fr; gap: 40px; }
+    .works-note-grid { grid-template-columns: 1fr; }
+    .recognition-grid { grid-template-columns: 1fr; }
+    .recognition-category { padding: 32px 0 8px; }
+    .recognition-items { padding: 20px 0; border-left: none; padding-left: 0; }
+    .research-section { grid-template-columns: 1fr; gap: 24px; }
+    .research-section-title { padding-right: 0; }
+    .research-section-title h3 { position: static; }
+    .research-section-body { padding-left: 0; border-left: none; padding-top: 24px; border-top: 0.5px solid rgba(184,149,90,0.2); }
+    .about-layout { grid-template-columns: 1fr; gap: 48px; }
+    .contact-layout { grid-template-columns: 1fr; gap: 60px; }
+    .hero-content { max-width: none; padding: 0 20px 40px; }
+    .hero-links { gap: 20px; }
+    .programme-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav>
+  <a href="#home" class="nav-name" data-page="home">Ezra Myers</a>
+  <ul class="nav-links">
+    <li><a href="#works" data-page="works" id="nav-works">Works</a></li>
+    <li><a href="#lof" data-page="lof" id="nav-lof">Laws of Folk</a></li>
+    <li><a href="#research" data-page="research" id="nav-research">Research</a></li>
+    <li><a href="#recognition" data-page="recognition" id="nav-recognition">Recognition</a></li>
+    <li><a href="#about" data-page="about" id="nav-about">About</a></li>
+    <li><a href="#contact" data-page="contact" id="nav-contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════════════════════ HOME ══════════════════════════════════ -->
+<main id="main">
+<div id="page-home" class="page" data-route="home">
+
+  <div class="hero">
+    <img
+      src="pay-the-devil-hero-site.jpg"
+      alt="Pay the Devil by Ezra Myers, life size figurative work in ink charcoal collage and gold leaf on Bockingford watercolour paper, 2026"
+      class="hero-image"
+      width="1800" height="900"
+      decoding="async" fetchpriority="high"
+    >
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Ezra Myers</h1>
+      <p class="hero-positioning">A British-Caribbean artist working with folklore, ancestral presence and the inherited codes of Afro-diasporic life.</p>
+      <div class="hero-links">
+        <a href="#lof" class="hero-link" data-page="lof">Laws of Folk, Exhibition 2026</a>
+        <a href="#works" class="hero-link" data-page="works">View Works</a>
+        <a href="#recognition" class="hero-link" data-page="recognition">Recognition</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="home-intro">
+    <div class="text-block">
+      <span class="label">Practice</span>
+      <div class="rule-short"></div>
+      <p>Working across drawing, collage and moving image, Myers makes large scale figurative works shaped by masks, ritual, distortion and the survival of folk knowledge across generations.</p>
+      <p style="margin-top: 1.4em; font-size: 17px; line-height: 1.75; color: var(--mid);">The work is rooted in Afro Caribbean folklore, in the codes carried through masquerade, music, movement and memory. Each image holds the figure as portrait, symbol and structure.</p>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <div class="home-three-routes">
+    <button class="route-item" type="button" data-page="lof">
+      <span class="route-number">I</span>
+      <span class="route-title">Laws of Folk</span>
+      <p class="route-desc">A major solo exhibition. October 2026. Black History Month. The body of work Myers has been building toward.</p>
+    </button>
+    <button class="route-item" type="button" data-page="works">
+      <span class="route-number">II</span>
+      <span class="route-title">Works</span>
+      <p class="route-desc">Large scale figurative drawing. Ink, charcoal, collage, gold leaf. Life size works approaching institutional scale.</p>
+    </button>
+    <button class="route-item" type="button" data-page="recognition">
+      <span class="route-number">III</span>
+      <span class="route-title">Recognition</span>
+      <p class="route-desc">Arts Council England. Royal Drawing School. BFI. Westway Trust International Artist Bursary. Institutional context.</p>
+    </button>
+  </div>
+
+  <footer>
+    <p>© Ezra Myers. All works protected by copyright.</p>
+    <p>London, 2026</p>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════ LAWS OF FOLK ══════════════════════════════════ -->
+<div id="page-lof" class="page" data-route="lof" hidden>
+
+  <div class="lof-hero">
+    <div class="text-wide">
+      <span class="label">Solo Exhibition, October 2026</span>
+      <h1>Laws of Folk</h1>
+      <p class="lof-subtitle">On folklore, memory and the unwritten laws of Afro diasporic life</p>
+      <div class="lof-meta">
+        <div class="lof-meta-item">
+          <span class="label">Opening</span>
+          <span class="lof-meta-value">October 2026</span>
+        </div>
+        <div class="lof-meta-item">
+          <span class="label">Context</span>
+          <span class="lof-meta-value">Black History Month</span>
+        </div>
+        <div class="lof-meta-item">
+          <span class="label">Location</span>
+          <span class="lof-meta-value">London</span>
+        </div>
+        <div class="lof-meta-item">
+          <span class="label">Format</span>
+          <span class="lof-meta-value">Drawing, Collage, Moving Image</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="statement-section">
+    <div class="text-block">
+      <span class="label">Exhibition Statement</span>
+      <div class="rule-short"></div>
+      <p>Every culture carries a body of law that was never written down. Not legislation, inheritance. The knowledge of how to move through the world. What the mask means. What the drum says. What the figure in the street during Carnival is actually doing. What survives when official history refuses to record you.</p>
+      <p>Laws of Folk is a major body of work exploring those laws. Through large scale figurative drawing, dense mark making, collage and embedded symbolism, the project asks how Afro diasporic folklore survives, not in archives, but in bodies. In performance. In music. In masquerade. In the faces people wear when they move through worlds that were not built for them.</p>
+      <p>The central figures are drawn from Trinidadian carnival tradition, the Jab Jab, the Jab Molassie, the stick fighter, the drummer. The work is not illustration. It does not explain folklore. It inhabits it. Each piece holds realism against distortion, presence against pressure, visibility against concealment.</p>
+      <p>Laws of Folk will bring together large scale works on paper, smaller studies and selected new pieces exploring Caribbean folklore, masks, sound, ancestral presence and the unwritten cultural laws carried through Afro diasporic life. Key works include Pay the Devil, Mary in the Light and Jay, with additional works to be unveiled at the exhibition.</p>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <section>
+    <div class="text-wide">
+      <div class="context-grid">
+        <div class="context-col">
+          <span class="label">Cultural Context</span>
+          <h3>The Unwritten Record</h3>
+          <p>The Windrush generation arrived in Britain carrying a complete cultural world, music, masquerade, ritual, belief, folklore, embodied knowledge passed through generations of Caribbean life. Very little of it was formally documented. The institutions that might have preserved it were not built for it. Much of what survived did so through people, through community, through the continuation of practice.</p>
+          <p>Laws of Folk is positioned at the edge of that continuity. It documents what is still living, the folklore that continues in steel pan orchestras, in Notting Hill Carnival, in the Jab Jab who still takes to the street, while acknowledging what is at risk of being lost as that generation passes.</p>
+        </div>
+        <div class="context-col">
+          <span class="label">The Research</span>
+          <h3>Trinidad, Field Research</h3>
+          <p>In 2024, supported by the Westway Trust International Artist Bursary, Myers undertook research in Trinidad, attending carnival, documenting masquerade traditions, meeting practitioners of stick fighting and steel pan, studying the Jab Jab and Jab Molassie figures in their original context. The work that followed is rooted in that field research.</p>
+          <p>Trinidad is where the laws originated. London is where they were carried. Laws of Folk moves between both, anchored in the Trinidadian cultural source while examining what that inheritance looks like in a West London community that has held it for seventy years.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-now">
+    <div class="text-block">
+      <span class="label">Why Now</span>
+      <h2>Cultural memory does not disappear suddenly. It thins.</h2>
+      <p>October 2026 is Black History Month. It is also the year the Windrush generation's story is being contested, commemorated and in some cases still corrected. Laws of Folk is not a commemorative exhibition. It is an active one, insisting that this cultural knowledge is not past tense, not heritage, not nostalgia. It is living law. It still governs. It still moves through people. The work exists to make that visible.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="text-wide">
+      <span class="label" style="padding: 0 40px;">Public Programme</span>
+      <div class="programme-grid" style="margin: 40px 40px 0;">
+        <div class="programme-item">
+          <h3>Opening Night</h3>
+          <p>Private view and opening reception. By invitation. For collectors, curators, institutional partners, community leaders and those whose cultural inheritance the work speaks to.</p>
+        </div>
+        <div class="programme-item">
+          <h3>Panel Discussion</h3>
+          <p>A conversation on Afro diasporic folklore, cultural archiving and the relationship between visual practice and living cultural memory. Speakers to be confirmed.</p>
+        </div>
+        <div class="programme-item">
+          <h3>Workshop Programme</h3>
+          <p>Drawing and mark making workshops for children and young people, rooted in the visual traditions the exhibition explores. Available to schools and community groups.</p>
+        </div>
+        <div class="programme-item">
+          <h3>Press & Institutional Enquiries</h3>
+          <p>For curatorial introductions, press requests, institutional partnership conversations and collector enquiries regarding works in the exhibition.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 60px 0; border-top: 0.5px solid rgba(184,149,90,0.3);">
+    <div class="text-block" style="text-align: center;">
+      <span class="label">Future Development</span>
+      <p style="font-family: var(--font-display); font-size: 20px; font-weight: 300; color: var(--mid);">Laws of Folk is conceived as a body of work that extends beyond a single exhibition. Following London, the project is positioned for further development, a return to Trinidad, expanded research, and international presentation.</p>
+      <p style="margin-top: 24px; font-size: 16px; color: var(--mid);">Institutions and partners interested in the future development of Laws of Folk are welcome to make contact.</p>
+      <div style="margin-top: 32px;">
+        <a href="mailto:studio@ezramyers.com" style="font-size: 12px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--black); text-decoration: none; border-bottom: 0.5px solid var(--gold); padding-bottom: 4px;">studio@ezramyers.com</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© Ezra Myers. All works protected by copyright.</p>
+    <p>London, 2026</p>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════ WORKS ══════════════════════════════════ -->
+<div id="page-works" class="page" data-route="works" hidden>
+
+  <section style="padding: 80px 0 40px;">
+    <div class="text-wide">
+      <span class="label">Selected Works</span>
+      <div class="works-series-header">
+        <h2>Laws of Folk</h2>
+      </div>
+
+      <!-- Work 1 -->
+      <div class="work-item">
+        <div class="work-image-placeholder work-image-wide">
+          <img src="pay-the-devil-chain-crop-site.jpg" alt="Pay the Devil by Ezra Myers" width="1400" height="1276" loading="lazy" decoding="async">
+        </div>
+        <div class="work-meta">
+          <h2 class="work-title">Pay the Devil</h2>
+          <div class="work-details">
+            <span>202.4 × 152.4 cm</span>
+            <span>Ink, charcoal, collage and gold leaf on Bockingford watercolour paper</span>
+            <span>2026</span>
+          </div>
+          <p class="work-text">In Trinidadian carnival tradition, the Jab Jab moves through the street covered in grease or paint, chains rattling, demanding tribute from onlookers. The figure carries a controlled threat, an inversion of power that carnival makes briefly possible.</p>
+          <p class="work-text" style="margin-top: 1em;">Pay the Devil places this figure inside a composition that refuses celebration. Gold leaf sits against dense mark making and distortion, holding the body between ritual presence and historical pressure. The work is not about carnival. It is about what carnival contains.</p>
+          <div class="artist-note">
+            <span class="label">Artist Note</span>
+            <p class="note-lead">They called us devils.</p>
+            <p class="note-lead">So we became them.</p>
+            <p>The Jab Jab is one of the oldest and most spiritually charged figures in Caribbean Carnival tradition. Born in the years following emancipation, it emerged when formerly enslaved Africans took to the streets at dawn, covered in oil and molasses, draped in chains, horned and blackened, mimicking the devilish image their oppressors had assigned to them. Not in shame. In satire. In reclamation. In liberation.</p>
+            <p>The chains they wore were the chains they had broken. The devil they played was the devil that had been used to diminish them, now turned back on itself as a symbol of freedom. Every gesture was an act of defiance dressed as performance. Every step on the road was an assertion that the grotesque label had been reclaimed and transformed into something nobody could take away.</p>
+            <p>This work does not illustrate that tradition. It inhabits it.</p>
+            <p>Gold leaf sits alongside charcoal and ink. The sacred and the earthly, the elevated and the raw, held inside the same image. Jab Jab has always contained that contradiction. The grotesque that is actually holy. The devil that is actually free. The mask that reveals more than it conceals.</p>
+            <p>The devil was their word. This is ours.</p>
+          </div>
+          <span class="work-status">Part of Laws of Folk, 2026 Exhibition</span>
+        </div>
+      </div>
+
+      <!-- Work 2 -->
+      <div class="work-item">
+        <div class="work-image-placeholder work-image-wide">
+          <img src="mary-in-the-light.jpg" alt="Mary in the Light by Ezra Myers" width="1200" height="1600" loading="lazy" decoding="async">
+        </div>
+        <div class="work-meta">
+          <h2 class="work-title">Mary in the Light</h2>
+          <div class="work-details">
+            <span>255.8 × 152.4 cm</span>
+            <span>Ink, charcoal and collage on Bockingford watercolour paper</span>
+            <span>2019</span>
+          </div>
+          <p class="work-text">The figure is held inside light and density, somewhere between portrait and architecture. Mary in the Light begins the language the later work develops: the face as site, the body as carrier, the image as a place where what cannot be named still gathers.</p>
+          <div class="artist-note">
+            <span class="label">Artist Note</span>
+            <p class="note-lead">This is not a portrait of Mary Seacole.</p>
+            <p class="note-lead">It is a portrait of what she carried.</p>
+            <p>She came to serve. She was refused. She came anyway. She crossed the Crimea, healed both sides of a war that was not hers, was rumoured against, diminished, ignored by the institutions that should have recognised her, and kept going. Her weapons were knowledge, spiritual intuition, herbal remedy, and an absolute refusal to be reduced by the conditions she was subjected to.</p>
+            <p>The sculpture of Mary Seacole that stands in Westminster is a monument to everything she embodied. This work draws from that image, but it does not stop there. Past, present and future are encoded into the same plane. A ghost moves in the background. A shadow falls in a direction the light should not allow. What she was, what she became, and what she continues to mean to the women who came after her all occupy the same space simultaneously.</p>
+            <p>There is a haunted quality to this work that is intentional. It does not make her weak. It makes her whole. The world has always required Black women to be infallible, made of steel, beyond the reach of ordinary human weight. This work acknowledges that requirement without surrendering to it. She is depicted in full strength and in full complexity, because to show only one is to participate in the same diminishment she spent her life resisting.</p>
+            <p>She is in the light. And the light holds everything.</p>
+          </div>
+          <span class="work-status">Part of Laws of Folk</span>
+        </div>
+      </div>
+
+      <!-- Work 3 -->
+      <div class="work-item">
+        <div class="work-image-placeholder work-image-wide paper-blend">
+          <img src="jay-web.jpg" alt="Jay by Ezra Myers" width="912" height="1300" loading="lazy" decoding="async">
+        </div>
+        <div class="work-meta">
+          <h2 class="work-title">Jay</h2>
+          <div class="work-details">
+            <span>55.9 × 38.1 cm</span>
+            <span>Medium to confirm</span>
+            <span>Year to confirm</span>
+          </div>
+          <p class="work-text">Jay is shown as an origin point. Smaller in scale, direct in its address, it marks an early moment in the visual language that the larger works would later deepen.</p>
+          <div class="artist-note">
+            <span class="label">Artist Note</span>
+            <p class="note-lead">This is where the language began.</p>
+            <p>Jay is an earlier work. A study. The piece in which the practice found its footing and began to understand what it was trying to say. It is here because the full body of work would be dishonest without it. You cannot understand where something arrives without knowing where it departed from.</p>
+            <p>Through this piece, the practice began to understand expression, contrast and shadow. Emotion arrives before explanation. The face is caught in a moment of intensity that is also sincere.</p>
+          </div>
+          <span class="work-status">Part of Laws of Folk</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Works held back -->
+  <section style="padding: 40px 0 80px;">
+    <div class="text-wide">
+      <div class="works-series-header">
+        <h2>To Be Unveiled</h2>
+      </div>
+      <div class="works-note-grid" style="margin-top: 40px;">
+        <div class="works-note">
+          <span class="label">Held for exhibition</span>
+          <h3>Between the Beat</h3>
+          <div class="work-details">
+            <span>Approx. 259.1 × 153 cm before final cut</span>
+          </div>
+          <p>A life scale work exploring sound, rhythm and ancestral memory through the figure of a seated drummer. The piece continues Myers' use of embedded faces, masks and shadow as carriers of inherited presence.</p>
+        </div>
+        <div class="works-note">
+          <span class="label">Held for exhibition</span>
+          <h3>Face to Face</h3>
+          <div class="work-details">
+            <span>97.8 × 81.3 cm</span>
+          </div>
+          <p>A smaller work continuing Myers' investigation into masks, doubled identity and the visual tension between surface and hidden presence. Most people walk past him. This piece does not allow that.</p>
+        </div>
+        <div class="works-note">
+          <span class="label">Held for exhibition</span>
+          <h3>Lion</h3>
+          <p>A work held back for the exhibition, extending Myers' language of embedded symbolism, animal presence and ancestral watchfulness.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© Ezra Myers. All works protected by copyright.</p>
+    <p>London, 2026</p>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════ RESEARCH ══════════════════════════════════ -->
+<div id="page-research" class="page" data-route="research" hidden>
+
+  <section class="research-intro">
+    <div class="text-block">
+      <span class="label">Research</span>
+      <div class="rule-short"></div>
+      <p style="font-family: var(--font-display); font-size: clamp(18px, 2vw, 24px); font-weight: 300; line-height: 1.7;">Laws of Folk is not only a visual project. It is a research practice. The work emerges from sustained engagement with Afro Caribbean cultural history, oral tradition, field documentation and formal investigation of how knowledge survives in the absence of official record.</p>
+    </div>
+  </section>
+
+  <div class="text-wide" style="padding: 0 40px;">
+
+    <div class="research-section">
+      <div class="research-section-title">
+        <span class="label">I</span>
+        <h3>Folklore as Living Law</h3>
+      </div>
+      <div class="research-section-body">
+        <p>The central argument of Laws of Folk is that folklore is not decorative, it is legislative. The beliefs, rituals, stories and embodied practices carried through Afro diasporic culture form a body of law: a way of moving, remembering and surviving when official structures refuse to hold you.</p>
+        <p>This research strand examines the theoretical underpinning of the whole project: what it means to read carnival masquerade, stick fighting, steel pan, the Jab Jab figure and oral tradition not as cultural colour but as encoded information, as the legal and moral architecture of a community that had to build its own.</p>
+      </div>
+    </div>
+
+    <div class="research-section">
+      <div class="research-section-title">
+        <span class="label">II</span>
+        <h3>Carnival, Masquerade and the Mask</h3>
+      </div>
+      <div class="research-section-body">
+        <p>The mask in Afro Caribbean carnival tradition is not concealment. It is transformation. To wear the Jab Jab is not to hide, it is to become something that has permission to move through the world differently. The mask grants the wearer access to a register of behaviour, speech and presence that the unmasked body cannot safely inhabit.</p>
+        <p>This strand of the research follows the mask from its West African origins through the Middle Passage and into the carnival traditions of Trinidad, Jamaica and eventually the streets of Notting Hill. It examines what the mask carries, what it protects, what it demands of those who encounter it, and how it functions in Myers' figurative work as a visual and conceptual device rather than an illustrative reference.</p>
+        <p>The Jab Jab specifically, the grease covered, chain rattling carnival figure at the centre of Pay the Devil, is studied here as a figure of controlled transgression: one who moves through the crowd demanding something from those who have more, in a ritual frame that makes refusal difficult and compliance meaningful.</p>
+      </div>
+    </div>
+
+    <div class="research-section">
+      <div class="research-section-title">
+        <span class="label">III</span>
+        <h3>Sound, Memory and the Drum</h3>
+      </div>
+      <div class="research-section-body">
+        <p>Before Caribbean communities had access to paper, institutions or official record, they had rhythm. The drum was the original archive, a technology for storing and transmitting information that could not safely be written down, that needed to be felt in the body to be fully received.</p>
+        <p>Steel pan, invented in Trinidad in the 1930s, is the continuation of that tradition through new materials. The pans themselves were built from oil drums discarded by colonial industry; the music played on them encoded community, identity, and creative authority in the same gesture. Myers' engagement with the Metronome Steel Orchestra, one of the UK's first steel bands based in Kensal Road, and with the Mangrove Steel Band at The Tabernacle in Notting Hill, roots this research in a living practice rather than a historical one.</p>
+        <p>Between the Beat addresses this directly, the body that carries sound as the body that carries memory, and the relationship between both in the construction of the Laws of Folk series.</p>
+      </div>
+    </div>
+
+    <div class="research-section">
+      <div class="research-section-title">
+        <span class="label">IV</span>
+        <h3>Trinidad, Field Research</h3>
+      </div>
+      <div class="research-section-body">
+        <p>In 2024, supported by the Westway Trust International Artist Bursary, Myers undertook an extended research visit to Trinidad, the cultural source of the folklore at the centre of Laws of Folk. The visit was structured around carnival season: attending mas camps, documenting masquerade preparation, witnessing the Jab Jab and Jab Molassie figures in their original context, and meeting practitioners of stick fighting and steel pan who still hold and transmit those traditions.</p>
+        <p>The visit was not tourism. It was primary research, fieldwork in a cultural territory that the artist's heritage connects to but that the artist had not previously documented at this level of sustained attention. The photographs, recordings, sketches and field notes from Trinidad form the material foundation of the Laws of Folk body of work.</p>
+        <p>A second research phase in Trinidad is planned following the London exhibition, extending the investigation and positioning the project for international development.</p>
+      </div>
+    </div>
+
+    <div class="research-section">
+      <div class="research-section-title">
+        <span class="label">V</span>
+        <h3>Studio Translations</h3>
+      </div>
+      <div class="research-section-body">
+        <p>The relationship between field research and the finished work is not illustration. Myers does not document what he finds and then draw it. The research is translated, passed through the formal language of the studio, through sustained mark making on large scale paper, through the layering of collage, ink and charcoal until the image finds its own logic.</p>
+        <p>This translation process is where the "faces within faces" structure of the work emerges, the hidden forms, the masks within masks, the figures that can be found in the dense mark making only through sustained looking. It is where the gold leaf enters: not decoratively, but as material insistence. Gold in a work about people who were never offered it is not decoration. It is an argument.</p>
+        <p>This research strand documents the studio practice itself, the methods, materials, scale decisions and formal choices through which the cultural research becomes image.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer style="margin-top: 80px;">
+    <p>© Ezra Myers. All works protected by copyright.</p>
+    <p>London, 2026</p>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════ RECOGNITION ══════════════════════════════════ -->
+<div id="page-recognition" class="page" data-route="recognition" hidden>
+
+  <section class="recognition-intro">
+    <div class="text-block">
+      <span class="label">Recognition & Institutional Support</span>
+      <div class="rule-short"></div>
+      <p>Myers' practice sits across drawing, moving image and cultural research. His work has been supported and recognised by organisations across visual art, film, cultural heritage and arts education, with ongoing relationships that position Laws of Folk within a serious institutional context.</p>
+    </div>
+  </section>
+
+  <div class="text-wide" style="padding: 0 40px;">
+    <div class="recognition-grid">
+
+      <!-- Grants & Awards -->
+      <div class="recognition-category">
+        <span class="recognition-category-label">Grants &<br>Awards</span>
+      </div>
+      <div class="recognition-items">
+        <div class="recognition-item">
+          <div class="recognition-item-name">Arts Council England</div>
+          <div class="recognition-item-detail">Developing Your Creative Practice (DYCP) award. Supported the research and development phase of the Laws of Folk project.</div>
+        </div>
+        <div class="recognition-item">
+          <div class="recognition-item-name">Westway Trust, International Artist Bursary</div>
+          <div class="recognition-item-detail">Supported an extended research visit to Trinidad in 2024, the field research that forms the cultural foundation of Laws of Folk.</div>
+        </div>
+        <div class="recognition-item">
+          <div class="recognition-item-name">Eaton Fund</div>
+          <div class="recognition-item-detail">Artist support grant. Ongoing relationship.</div>
+        </div>
+        <div class="recognition-item">
+          <div class="recognition-item-name">Carnival Village Trust</div>
+          <div class="recognition-item-detail">Community cultural organisation. Supporter of the Laws of Folk project and its connections to Notting Hill Carnival tradition.</div>
+        </div>
+        <div class="recognition-item">
+          <div class="recognition-item-name">Portobello Trust</div>
+          <div class="recognition-item-detail">Supported cultural research informing the development of Laws of Folk. West London community organisation with longstanding connection to the cultural geography of the work.</div>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="recognition-category">
+        <span class="recognition-category-label">Education &<br>Development</span>
+      </div>
+      <div class="recognition-items">
+        <div class="recognition-item">
+          <div class="recognition-item-name">Royal Drawing School</div>
+          <div class="recognition-item-detail">Formal training. The mark making discipline central to the Laws of Folk works is rooted in the sustained figurative study undertaken at the Royal Drawing School.</div>
+        </div>
+        <div class="recognition-item">
+          <div class="recognition-item-name">Mentorship, Carl Gabriel</div>
+          <div class="recognition-item-detail">Extended mentorship relationship informing the development of the practice.</div>
+        </div>
+      </div>
+
+      <!-- Royal Drawing School Context -->
+      <div class="recognition-category">
+        <span class="recognition-category-label">Royal Drawing<br>School Context</span>
+      </div>
+      <div class="recognition-items">
+        <figure class="recognition-figure">
+          <img src="assets/images/royal-drawing-school-ezra-myers.jpg" alt="Ezra Myers presenting work during a Royal Drawing School student exhibition viewing." width="1240" height="1242" loading="lazy" decoding="async">
+          <figcaption>Royal Drawing School, London. Ezra Myers presenting work during a student exhibition viewing attended by His Majesty King Charles III.</figcaption>
+          <p>This moment forms part of Myers' wider artistic development through the Royal Drawing School and his ongoing commitment to drawing as a serious foundation for image making.</p>
+        </figure>
+      </div>
+
+      <!-- Film & Moving Image -->
+      <div class="recognition-category">
+        <span class="recognition-category-label">Film &<br>Moving Image</span>
+      </div>
+      <div class="recognition-items">
+        <div class="recognition-item">
+          <div class="recognition-item-name">BFI, Barbican Screening</div>
+          <div class="recognition-item-detail">Moving image work screened through BFI programming at the Barbican, London. An established institutional relationship to build on.</div>
+        </div>
+        <div class="recognition-item">
+          <div class="recognition-item-name">Film London</div>
+          <div class="recognition-item-detail">Recognised through Film London's support network for artists working in moving image.</div>
+        </div>
+        <div class="recognition-item">
+          <div class="recognition-item-name">B3 Biennial of the Moving Image</div>
+          <div class="recognition-item-detail">Work featured in international biennial context.</div>
+        </div>
+        <div class="recognition-item">
+          <div class="recognition-item-name">CCCB, Centre de Cultura Contemporània de Barcelona</div>
+          <div class="recognition-item-detail">International cultural platform. Feature context.</div>
+        </div>
+      </div>
+
+      <!-- Cultural Connections -->
+      <div class="recognition-category">
+        <span class="recognition-category-label">Cultural<br>Connections</span>
+      </div>
+      <div class="recognition-items">
+        <div class="recognition-item">
+          <div class="recognition-item-name">The Tabernacle, Notting Hill</div>
+          <div class="recognition-item-detail">Home of the Mangrove Steel Band. Headquarters of Carnival Village Trust. The most culturally significant building to the subject matter of Laws of Folk, a live institutional connection through direct community ties.</div>
+        </div>
+        <div class="recognition-item">
+          <div class="recognition-item-name">Mangrove Steel Band</div>
+          <div class="recognition-item-detail">Personal and cultural connection to the steel band tradition central to Laws of Folk. Direct ancestral link through George Cox.</div>
+        </div>
+        <div class="recognition-item">
+          <div class="recognition-item-name">Metronome Steel Orchestra</div>
+          <div class="recognition-item-detail">One of the first steel pan bands in the UK. Based on Kensal Road. A living connection to the musical and cultural heritage at the heart of the project.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <section style="padding: 80px 0; border-top: 0.5px solid rgba(184,149,90,0.3);">
+    <div class="text-block" style="text-align: center;">
+      <span class="label">Institutional Enquiries</span>
+      <p style="font-family: var(--font-display); font-size: 18px; font-weight: 300; color: var(--mid); max-width: 500px; margin: 0 auto;">For curators, institutions and collectors interested in the work or in the development of Laws of Folk.</p>
+      <div style="margin-top: 32px;">
+        <a href="mailto:studio@ezramyers.com" style="font-size: 12px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--black); text-decoration: none; border-bottom: 0.5px solid var(--gold); padding-bottom: 4px;">studio@ezramyers.com</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© Ezra Myers. All works protected by copyright.</p>
+    <p>London, 2026</p>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════ ABOUT ══════════════════════════════════ -->
+<div id="page-about" class="page" data-route="about" hidden>
+  <section>
+    <div class="text-wide" style="padding: 80px 40px;">
+      <div class="about-layout">
+        <div class="about-image-placeholder">
+          <img src="assets/images/ezra-myers-portrait.jpg" alt="Portrait of Ezra Myers in the studio" width="900" height="1200" loading="lazy" decoding="async">
+        </div>
+        <div class="about-text">
+          <span class="label">About</span>
+          <p>Ezra Myers is a British Caribbean artist based in London, working across drawing, collage and moving image. His practice explores Afro diasporic folklore, inherited memory, masks and ancestral presence, the cultural codes carried through ritual, story, performance and image across generations.</p>
+          <p>Myers is known for large scale figurative works built through controlled realism, dense mark making, distortion and embedded symbolism, placing figures between ritual presence and historical pressure, and concealing faces, masks and hidden forms within the dense structure of each image. His primary materials are ink, charcoal and collage on Bockingford watercolour paper, working at life size scale, approximately 260 to 290 centimetres. The work approaches institutional dimensions without apology.</p>
+          <p>His practice is rooted in Trinidadian carnival tradition, the Jab Jab, the Jab Molassie, the stick fighter, the drummer. These figures appear not as illustration but as cultural argument: evidence of a body of knowledge that was never officially recorded, that survived through embodiment, and that Myers' work insists on treating as serious, urgent and aesthetically necessary subject matter.</p>
+          <p>He is currently developing Laws of Folk, a major body of work and forthcoming solo exhibition examining Caribbean folklore, Trinidadian carnival tradition and the unwritten laws that shape Afro diasporic cultural inheritance. The exhibition opens in London in October 2026 during Black History Month.</p>
+          <p>Myers trained at the Royal Drawing School and holds an animation degree. His moving image work has been shown through BFI programming at the Barbican, at the B3 Biennial of the Moving Image, and featured by CCCB in Barcelona. His practice has been supported by Arts Council England, the Westway Trust International Artist Bursary, the Eaton Fund, Carnival Village Trust and the Portobello Trust.</p>
+          <a href="mailto:studio@ezramyers.com" class="about-cv-link">Request CV, studio@ezramyers.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© Ezra Myers. All works protected by copyright.</p>
+    <p>London, 2026</p>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════ CONTACT ══════════════════════════════════ -->
+<div id="page-contact" class="page" data-route="contact" hidden>
+  <section>
+    <div class="text-wide" style="padding: 80px 40px;">
+      <div class="contact-layout">
+        <div class="contact-intro">
+          <span class="label">Contact</span>
+          <h2>Studio, collecting and institutional enquiries</h2>
+          <p>Myers is based in London and available for selected studio visits by appointment. Curatorial introductions, institutional partnerships, press enquiries and collector conversations are welcome.</p>
+          <div class="contact-email-block">
+            <span class="label" style="margin-bottom: 12px;">All enquiries</span>
+            <a href="mailto:studio@ezramyers.com" class="contact-email">studio@ezramyers.com</a>
+            <p style="margin-top: 16px; font-size: 14px; color: var(--mid); line-height: 1.7;">Based in London. Available for selected studio visits by appointment.</p>
+          </div>
+        </div>
+        <div class="contact-categories">
+          <span class="label" style="margin-bottom: 24px;">Enquiry types</span>
+          <div class="contact-cat">
+            <span class="contact-cat-name">Collector enquiries</span>
+          </div>
+          <div class="contact-cat">
+            <span class="contact-cat-name">Curatorial &amp; institutional</span>
+          </div>
+          <div class="contact-cat">
+            <span class="contact-cat-name">Press &amp; editorial</span>
+          </div>
+          <div class="contact-cat">
+            <span class="contact-cat-name">Exhibition partnerships</span>
+          </div>
+          <div class="contact-cat">
+            <span class="contact-cat-name">Studio visits</span>
+            <span class="contact-cat-route">By appointment</span>
+          </div>
+          <div class="contact-cat">
+            <span class="contact-cat-name">Support the work</span>
+          </div>
+          <div class="contact-cat" style="border-bottom: none;">
+            <span class="contact-cat-name">General studio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© Ezra Myers. All works protected by copyright.</p>
+    <p>London, 2026</p>
+  </footer>
+</div>
+</main>
+
+<script>
+  const pageIds = ['home', 'works', 'lof', 'research', 'recognition', 'about', 'contact'];
+  const pageTitles = {
+    home: 'Ezra Myers, British Caribbean Artist',
+    works: 'Works, Ezra Myers',
+    lof: 'Laws of Folk, Ezra Myers',
+    research: 'Research, Ezra Myers',
+    recognition: 'Recognition, Ezra Myers',
+    about: 'About, Ezra Myers',
+    contact: 'Contact, Ezra Myers'
+  };
+
+  function showPage(id, pushState = true) {
+    const pageId = pageIds.includes(id) ? id : 'home';
+
+    document.querySelectorAll('.page').forEach(page => {
+      page.hidden = page.dataset.route !== pageId;
+    });
+
+    document.querySelectorAll('[data-page]').forEach(link => {
+      const isCurrent = link.dataset.page === pageId;
+      link.classList.toggle('active', isCurrent);
+      if (link.matches('.nav-links a')) {
+        if (isCurrent) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+      }
+    });
+
+    if (pushState && location.hash !== '#' + pageId) history.pushState(null, '', '#' + pageId);
+    window.scrollTo(0, 0);
+    document.title = pageTitles[pageId];
+  }
+
+  document.addEventListener('click', event => {
+    const trigger = event.target.closest('[data-page]');
+    if (!trigger) return;
+    event.preventDefault();
+    showPage(trigger.dataset.page);
+  });
+
+  window.addEventListener('popstate', () => showPage(location.hash.slice(1), false));
+  showPage(location.hash.slice(1) || 'home', false);
+</script>
+</body>
+</html>
