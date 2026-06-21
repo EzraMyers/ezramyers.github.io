@@ -36,11 +36,12 @@
   }
 
   .js .image-reveal:not(.home-hero-image) {
-    opacity: 0.54;
+    opacity: 0;
     filter: none;
     transform: none;
-    transition: opacity 960ms cubic-bezier(0.22, 1, 0.36, 1);
+    transition: opacity 720ms cubic-bezier(0.22, 1, 0.36, 1);
     will-change: opacity;
+    background-color: transparent;
   }
 
   .js .text-reveal {
@@ -222,7 +223,7 @@
     position: relative;
     height: calc(100vh - 80px);
     overflow: hidden;
-    background: var(--black);
+    background: var(--cream);
     display: flex;
     align-items: flex-end;
   }
@@ -240,12 +241,18 @@
   .hero-overlay {
     position: absolute;
     inset: 0;
+    opacity: 1;
+    transition: opacity 520ms cubic-bezier(0.22, 1, 0.36, 1);
     background: linear-gradient(
       to top,
       rgba(10,10,10,0.75) 0%,
       rgba(10,10,10,0.1) 50%,
       transparent 100%
     );
+  }
+
+  .home-hero-image:not(.is-revealed) + .hero-overlay {
+    opacity: 0;
   }
 
   .hero-content {
@@ -513,7 +520,7 @@
   .work-image-placeholder {
     width: 100%;
     aspect-ratio: 2/3;
-    background: var(--rule);
+    background: var(--cream);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -710,6 +717,10 @@
     margin: 0;
   }
 
+  .recognition-figure {
+    background: var(--cream);
+  }
+
   .recognition-figure img {
     width: 100%;
     height: auto;
@@ -782,7 +793,7 @@
   .about-image-placeholder {
     width: 100%;
     aspect-ratio: 3/4;
-    background: var(--rule);
+    background: var(--cream);
     display: flex;
     align-items: flex-end;
     padding: 0;
@@ -1124,11 +1135,24 @@
       element.classList.add('is-revealed');
     };
 
-    if (element.tagName === 'IMG' && !element.complete) {
-      element.addEventListener('load', show, { once: true });
+    if (element.tagName !== 'IMG') {
+      show();
+      return;
+    }
+
+    var showAfterDecode = function () {
+      if (element.decode) {
+        element.decode().catch(function () {}).then(show);
+      } else {
+        window.requestAnimationFrame(show);
+      }
+    };
+
+    if (!element.complete || element.naturalWidth === 0) {
+      element.addEventListener('load', showAfterDecode, { once: true });
       element.addEventListener('error', show, { once: true });
     } else {
-      show();
+      showAfterDecode();
     }
   }
 
