@@ -20,10 +20,58 @@
 <link rel="preload" as="image" href="ezra-myers-laws-of-folk.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<script>
+  document.documentElement.classList.add('js');
+</script>
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   img { display: block; max-width: 100%; }
+
+  .image-reveal,
+  .text-reveal {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+
+  .js .image-reveal:not(.home-hero-image) {
+    opacity: 0.54;
+    filter: none;
+    transform: none;
+    transition: opacity 960ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity;
+  }
+
+  .js .text-reveal {
+    opacity: 0;
+    transform: translateY(4px);
+    transition:
+      opacity 860ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 860ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+
+  .js .image-reveal:not(.home-hero-image).is-revealed {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+
+  .js .text-reveal.is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js .image-reveal,
+    .js .text-reveal {
+      opacity: 1 !important;
+      filter: none !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
   a, button { color: inherit; }
   .route-item { display: block; text-decoration: none; }
   .nav-links a.active, .nav-links a[aria-current="page"] { color: var(--black); }
@@ -919,6 +967,7 @@
 <nav>
   <a href="index.html" class="nav-name">Ezra Myers</a>
   <ul class="nav-links">
+    <li><a href="index.html" id="nav-home">Home</a></li>
     <li><a href="works.html" id="nav-works">Works</a></li>
     <li><a href="laws-of-folk.html" id="nav-lof" aria-current="page">Laws of Folk</a></li>
     <li><a href="research.html" id="nav-research">Research</a></li>
@@ -984,7 +1033,7 @@
         <div class="context-col">
           <span class="label">The Research</span>
           <h3>Trinidad, Field Research</h3>
-          <p>In 2024, supported by the Westway Trust International Artist Bursary, Myers undertook research in Trinidad, attending carnival, documenting masquerade traditions, meeting practitioners of stick fighting and steel pan, studying the Jab Jab and Jab Molassie figures in their original context. The work that followed is rooted in that <a href="research.html">Research</a>.</p>
+          <p>Myers' research has included time in Trinidad, engaging with Carnival, masquerade, Jab Jab and Jab Molassie traditions, stick fighting, steel pan, sound, movement and cultural inheritance. A further Trinidad and Tobago research phase, supported by the Westway Trust International Artist Bursary, is planned for the end of 2026 and will extend the project beyond the London exhibition. The work that followed is rooted in that <a href="research.html">Research</a>.</p>
           <p>Trinidad is where the laws originated. London is where they were carried. Laws of Folk moves between both, anchored in the Trinidadian cultural source while examining what that inheritance looks like in a West London community that has held it for seventy years.</p>
         </div>
       </div>
@@ -994,7 +1043,7 @@
   <section class="why-now">
     <div class="text-block">
       <span class="label">Why Now</span>
-      <h2>Cultural memory does not disappear suddenly. It thins.</h2>
+      <h2>Cultural memory does not disappear immediately. It thins.</h2>
       <p>October 2026 is Black History Month. It is also the year the Windrush generation's story is being contested, commemorated and in some cases still corrected. Laws of Folk is not a commemorative exhibition. It is an active one, insisting that this cultural knowledge is not past tense, not heritage, not nostalgia. It is living law. It still governs. It still moves through people. The work exists to make that visible.</p>
     </div>
   </section>
@@ -1034,5 +1083,87 @@
 
 <!-- ══════════════════════════════════ WORKS ══════════════════════════════════ -->
 </main>
+<script>
+(function () {
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ignoredSelector = 'nav, footer, button, .nav-links, .logo, .icon, [data-no-reveal]';
+  var imageSelector = 'img.image-reveal, main img:not([data-no-reveal])';
+  var textSelector = [
+    'main h1',
+    'main h2',
+    'main h3',
+    'main p',
+    'main .label',
+    'main .hero-link',
+    'main .route-number',
+    'main .route-title',
+    'main .work-details',
+    'main .work-status',
+    'main .recognition-category-label',
+    'main .recognition-item-name',
+    'main .recognition-item-detail',
+    'main .research-section-title',
+    'main .research-section-body'
+  ].join(', ');
+
+  function isSignificantImage(image) {
+    if (image.closest(ignoredSelector)) return false;
+    var width = Number(image.getAttribute('width')) || image.naturalWidth || 0;
+    var height = Number(image.getAttribute('height')) || image.naturalHeight || 0;
+    return image.classList.contains('image-reveal') || width >= 240 || height >= 240;
+  }
+
+  function isSignificantText(element) {
+    if (element.closest(ignoredSelector)) return false;
+    if (!element.textContent || !element.textContent.trim()) return false;
+    return true;
+  }
+
+  function reveal(element) {
+    var show = function () {
+      element.classList.add('is-revealed');
+    };
+
+    if (element.tagName === 'IMG' && !element.complete) {
+      element.addEventListener('load', show, { once: true });
+      element.addEventListener('error', show, { once: true });
+    } else {
+      show();
+    }
+  }
+
+  var images = Array.prototype.slice.call(document.querySelectorAll(imageSelector)).filter(isSignificantImage);
+  var textItems = Array.prototype.slice.call(document.querySelectorAll(textSelector)).filter(isSignificantText);
+  var revealItems = images.concat(textItems);
+
+  images.forEach(function (image) {
+    image.classList.add('image-reveal');
+  });
+
+  textItems.forEach(function (item) {
+    item.classList.add('text-reveal');
+  });
+
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealItems.forEach(reveal);
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      reveal(entry.target);
+      observer.unobserve(entry.target);
+    });
+  }, {
+    rootMargin: '0px 0px -8% 0px',
+    threshold: 0.12
+  });
+
+  revealItems.forEach(function (item) {
+    observer.observe(item);
+  });
+}());
+</script>
 </body>
 </html>

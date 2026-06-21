@@ -20,10 +20,58 @@
 <link rel="preload" as="image" href="ezra-myers-laws-of-folk.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<script>
+  document.documentElement.classList.add('js');
+</script>
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   img { display: block; max-width: 100%; }
+
+  .image-reveal,
+  .text-reveal {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+
+  .js .image-reveal:not(.home-hero-image) {
+    opacity: 0.54;
+    filter: none;
+    transform: none;
+    transition: opacity 960ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity;
+  }
+
+  .js .text-reveal {
+    opacity: 0;
+    transform: translateY(4px);
+    transition:
+      opacity 860ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 860ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+
+  .js .image-reveal:not(.home-hero-image).is-revealed {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+
+  .js .text-reveal.is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js .image-reveal,
+    .js .text-reveal {
+      opacity: 1 !important;
+      filter: none !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
   a, button { color: inherit; }
   .route-item { display: block; text-decoration: none; }
   .nav-links a.active, .nav-links a[aria-current="page"] { color: var(--black); }
@@ -952,7 +1000,7 @@
       </div>
       <div class="recognition-items">
         <figure class="recognition-figure">
-          <img src="assets/images/royal-drawing-school-ezra-myers-king-charles.jpg" alt="Ezra Myers presenting work during a Royal Drawing School student exhibition viewing attended by His Majesty King Charles III." width="1240" height="1242" loading="lazy" decoding="async">
+          <img class="image-reveal" src="assets/images/royal-drawing-school-ezra-myers-king-charles.jpg" alt="Ezra Myers presenting work during a Royal Drawing School student exhibition viewing attended by His Majesty King Charles III." width="1240" height="1242" loading="lazy" decoding="async">
           <figcaption>Royal Drawing School, London. Ezra Myers presenting work during a student exhibition viewing attended by His Majesty King Charles III. The work was selected during the viewing and acquired by his office shortly afterwards.</figcaption>
         </figure>
       </div>
@@ -1033,7 +1081,7 @@
         </div>
         <div class="recognition-item">
           <div class="recognition-item-name">Metronome Steel Orchestra</div>
-          <div class="recognition-item-detail">One of the first steel pan bands in the UK. Based on Kensal Road. A living connection to the musical and cultural heritage at the heart of the project.</div>
+          <div class="recognition-item-detail">An early and long-standing UK steel pan orchestra formed in 1973 and rooted in West London. Its history connects directly to the musical and cultural inheritance explored in Laws of Folk.</div>
         </div>
       </div>
 
@@ -1058,5 +1106,87 @@
 
 <!-- ══════════════════════════════════ ABOUT ══════════════════════════════════ -->
 </main>
+<script>
+(function () {
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ignoredSelector = 'nav, footer, button, .nav-links, .logo, .icon, [data-no-reveal]';
+  var imageSelector = 'img.image-reveal, main img:not([data-no-reveal])';
+  var textSelector = [
+    'main h1',
+    'main h2',
+    'main h3',
+    'main p',
+    'main .label',
+    'main .hero-link',
+    'main .route-number',
+    'main .route-title',
+    'main .work-details',
+    'main .work-status',
+    'main .recognition-category-label',
+    'main .recognition-item-name',
+    'main .recognition-item-detail',
+    'main .research-section-title',
+    'main .research-section-body'
+  ].join(', ');
+
+  function isSignificantImage(image) {
+    if (image.closest(ignoredSelector)) return false;
+    var width = Number(image.getAttribute('width')) || image.naturalWidth || 0;
+    var height = Number(image.getAttribute('height')) || image.naturalHeight || 0;
+    return image.classList.contains('image-reveal') || width >= 240 || height >= 240;
+  }
+
+  function isSignificantText(element) {
+    if (element.closest(ignoredSelector)) return false;
+    if (!element.textContent || !element.textContent.trim()) return false;
+    return true;
+  }
+
+  function reveal(element) {
+    var show = function () {
+      element.classList.add('is-revealed');
+    };
+
+    if (element.tagName === 'IMG' && !element.complete) {
+      element.addEventListener('load', show, { once: true });
+      element.addEventListener('error', show, { once: true });
+    } else {
+      show();
+    }
+  }
+
+  var images = Array.prototype.slice.call(document.querySelectorAll(imageSelector)).filter(isSignificantImage);
+  var textItems = Array.prototype.slice.call(document.querySelectorAll(textSelector)).filter(isSignificantText);
+  var revealItems = images.concat(textItems);
+
+  images.forEach(function (image) {
+    image.classList.add('image-reveal');
+  });
+
+  textItems.forEach(function (item) {
+    item.classList.add('text-reveal');
+  });
+
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealItems.forEach(reveal);
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      reveal(entry.target);
+      observer.unobserve(entry.target);
+    });
+  }, {
+    rootMargin: '0px 0px -8% 0px',
+    threshold: 0.12
+  });
+
+  revealItems.forEach(function (item) {
+    observer.observe(item);
+  });
+}());
+</script>
 </body>
 </html>

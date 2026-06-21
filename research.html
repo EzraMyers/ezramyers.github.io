@@ -20,10 +20,58 @@
 <link rel="preload" as="image" href="ezra-myers-laws-of-folk.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<script>
+  document.documentElement.classList.add('js');
+</script>
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   img { display: block; max-width: 100%; }
+
+  .image-reveal,
+  .text-reveal {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+
+  .js .image-reveal:not(.home-hero-image) {
+    opacity: 0.54;
+    filter: none;
+    transform: none;
+    transition: opacity 960ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity;
+  }
+
+  .js .text-reveal {
+    opacity: 0;
+    transform: translateY(4px);
+    transition:
+      opacity 860ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 860ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+
+  .js .image-reveal:not(.home-hero-image).is-revealed {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+
+  .js .text-reveal.is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js .image-reveal,
+    .js .text-reveal {
+      opacity: 1 !important;
+      filter: none !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
   a, button { color: inherit; }
   .route-item { display: block; text-decoration: none; }
   .nav-links a.active, .nav-links a[aria-current="page"] { color: var(--black); }
@@ -919,6 +967,7 @@
 <nav>
   <a href="index.html" class="nav-name">Ezra Myers</a>
   <ul class="nav-links">
+    <li><a href="index.html" id="nav-home">Home</a></li>
     <li><a href="works.html" id="nav-works">Works</a></li>
     <li><a href="laws-of-folk.html" id="nav-lof">Laws of Folk</a></li>
     <li><a href="research.html" id="nav-research" aria-current="page">Research</a></li>
@@ -963,7 +1012,7 @@
       <div class="research-section-body">
         <p>The mask in Afro Caribbean carnival tradition is not concealment. It is transformation. To wear the Jab Jab is not to hide, it is to become something that has permission to move through the world differently. The mask grants the wearer access to a register of behaviour, speech and presence that the unmasked body cannot safely inhabit.</p>
         <p>This strand of the research follows the mask from its West African origins through the Middle Passage and into the carnival traditions of Trinidad, Jamaica and eventually the streets of Notting Hill. It examines what the mask carries, what it protects, what it demands of those who encounter it, and how it functions in Myers' figurative work as a visual and conceptual device rather than an illustrative reference.</p>
-        <p>The Jab Jab specifically, the grease covered, chain rattling carnival figure at the centre of <a href="works.html">Pay the Devil / Jab Jab</a>, is studied here as a figure of controlled transgression: one who moves through the crowd demanding something from those who have more, in a ritual frame that makes refusal difficult and compliance meaningful.</p>
+        <p>The Jab Jab specifically, the grease covered, chain rattling carnival figure at the centre of <a href="works.html">Pay the Devil</a>, is studied here as a figure of controlled transgression: one who moves through the crowd demanding something from those who have more, in a ritual frame that makes refusal difficult and compliance meaningful.</p>
       </div>
     </div>
 
@@ -985,9 +1034,8 @@
         <h3><a href="laws-of-folk.html">Trinidad Field Research</a></h3>
       </div>
       <div class="research-section-body">
-        <p>In 2024, supported by the Westway Trust International Artist Bursary, Myers undertook an extended research visit to Trinidad, the cultural source of the folklore at the centre of Laws of Folk. The visit was structured around carnival season: attending mas camps, documenting masquerade preparation, witnessing the Jab Jab and Jab Molassie figures in their original context, and meeting practitioners of stick fighting and steel pan who still hold and transmit those traditions.</p>
+        <p>Myers' research has included time in Trinidad, engaging with Carnival, masquerade, Jab Jab and Jab Molassie traditions, stick fighting, steel pan, sound, movement and cultural inheritance. A further Trinidad and Tobago research phase, supported by the Westway Trust International Artist Bursary, is planned for the end of 2026 and will extend the project beyond the London exhibition.</p>
         <p>The visit was not tourism. It was primary research, fieldwork in a cultural territory that the artist's heritage connects to but that the artist had not previously documented at this level of sustained attention. The photographs, recordings, sketches and field notes from Trinidad form the material foundation of the Laws of Folk body of work.</p>
-        <p>A second research phase in Trinidad is planned following the London exhibition, extending the investigation and positioning the project for international development.</p>
       </div>
     </div>
 
@@ -1013,5 +1061,87 @@
 
 <!-- ══════════════════════════════════ RECOGNITION ══════════════════════════════════ -->
 </main>
+<script>
+(function () {
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ignoredSelector = 'nav, footer, button, .nav-links, .logo, .icon, [data-no-reveal]';
+  var imageSelector = 'img.image-reveal, main img:not([data-no-reveal])';
+  var textSelector = [
+    'main h1',
+    'main h2',
+    'main h3',
+    'main p',
+    'main .label',
+    'main .hero-link',
+    'main .route-number',
+    'main .route-title',
+    'main .work-details',
+    'main .work-status',
+    'main .recognition-category-label',
+    'main .recognition-item-name',
+    'main .recognition-item-detail',
+    'main .research-section-title',
+    'main .research-section-body'
+  ].join(', ');
+
+  function isSignificantImage(image) {
+    if (image.closest(ignoredSelector)) return false;
+    var width = Number(image.getAttribute('width')) || image.naturalWidth || 0;
+    var height = Number(image.getAttribute('height')) || image.naturalHeight || 0;
+    return image.classList.contains('image-reveal') || width >= 240 || height >= 240;
+  }
+
+  function isSignificantText(element) {
+    if (element.closest(ignoredSelector)) return false;
+    if (!element.textContent || !element.textContent.trim()) return false;
+    return true;
+  }
+
+  function reveal(element) {
+    var show = function () {
+      element.classList.add('is-revealed');
+    };
+
+    if (element.tagName === 'IMG' && !element.complete) {
+      element.addEventListener('load', show, { once: true });
+      element.addEventListener('error', show, { once: true });
+    } else {
+      show();
+    }
+  }
+
+  var images = Array.prototype.slice.call(document.querySelectorAll(imageSelector)).filter(isSignificantImage);
+  var textItems = Array.prototype.slice.call(document.querySelectorAll(textSelector)).filter(isSignificantText);
+  var revealItems = images.concat(textItems);
+
+  images.forEach(function (image) {
+    image.classList.add('image-reveal');
+  });
+
+  textItems.forEach(function (item) {
+    item.classList.add('text-reveal');
+  });
+
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealItems.forEach(reveal);
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      reveal(entry.target);
+      observer.unobserve(entry.target);
+    });
+  }, {
+    rootMargin: '0px 0px -8% 0px',
+    threshold: 0.12
+  });
+
+  revealItems.forEach(function (item) {
+    observer.observe(item);
+  });
+}());
+</script>
 </body>
 </html>

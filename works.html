@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Works | Ezra Myers</title>
-<meta name="description" content="Selected works by Ezra Myers, including Pay the Devil / Jab Jab, Mary in the Light and Jay. Large-scale drawing, collage and works on paper exploring Caribbean folklore, masks, ritual and Afro-diasporic cultural inheritance.">
+<meta name="description" content="Selected works by Ezra Myers, including Pay the Devil, Mary in the Light and Jay. Large-scale drawing, collage and works on paper exploring Caribbean folklore, masks, ritual and Afro-diasporic cultural inheritance.">
 <link rel="canonical" href="https://www.ezramyers.com/works.html">
 <meta property="og:title" content="Works | Ezra Myers">
-<meta property="og:description" content="Selected works by Ezra Myers, including Pay the Devil / Jab Jab, Mary in the Light and Jay. Large-scale drawing, collage and works on paper exploring Caribbean folklore, masks, ritual and Afro-diasporic cultural inheritance.">
+<meta property="og:description" content="Selected works by Ezra Myers, including Pay the Devil, Mary in the Light and Jay. Large-scale drawing, collage and works on paper exploring Caribbean folklore, masks, ritual and Afro-diasporic cultural inheritance.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.ezramyers.com/works.html">
 <meta property="og:image" content="https://www.ezramyers.com/pay-the-devil-jab-jab-ezra-myers.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Works | Ezra Myers">
-<meta name="twitter:description" content="Selected works by Ezra Myers, including Pay the Devil / Jab Jab, Mary in the Light and Jay. Large-scale drawing, collage and works on paper exploring Caribbean folklore, masks, ritual and Afro-diasporic cultural inheritance.">
+<meta name="twitter:description" content="Selected works by Ezra Myers, including Pay the Devil, Mary in the Light and Jay. Large-scale drawing, collage and works on paper exploring Caribbean folklore, masks, ritual and Afro-diasporic cultural inheritance.">
 <meta name="twitter:image" content="https://www.ezramyers.com/pay-the-devil-jab-jab-ezra-myers.jpg">
 <script type="application/ld+json">
 {
@@ -21,7 +21,7 @@
   "@graph": [
     {
       "@type": "VisualArtwork",
-      "name": "Pay the Devil / Jab Jab",
+      "name": "Pay the Devil",
       "creator": {
         "@type": "Person",
         "name": "Ezra Myers"
@@ -67,10 +67,58 @@
 <link rel="preload" as="image" href="ezra-myers-laws-of-folk.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<script>
+  document.documentElement.classList.add('js');
+</script>
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   img { display: block; max-width: 100%; }
+
+  .image-reveal,
+  .text-reveal {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+
+  .js .image-reveal:not(.home-hero-image) {
+    opacity: 0.54;
+    filter: none;
+    transform: none;
+    transition: opacity 960ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity;
+  }
+
+  .js .text-reveal {
+    opacity: 0;
+    transform: translateY(4px);
+    transition:
+      opacity 860ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 860ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+
+  .js .image-reveal:not(.home-hero-image).is-revealed {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+
+  .js .text-reveal.is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js .image-reveal,
+    .js .text-reveal {
+      opacity: 1 !important;
+      filter: none !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
   a, button { color: inherit; }
   .route-item { display: block; text-decoration: none; }
   .nav-links a.active, .nav-links a[aria-current="page"] { color: var(--black); }
@@ -607,6 +655,15 @@
     line-height: 1.35;
   }
 
+  .artist-note-text,
+  .work-note-text {
+    max-width: 12ch;
+  }
+
+  .body-text {
+    max-width: 34ch;
+  }
+
   .works-note-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -966,6 +1023,7 @@
 <nav>
   <a href="index.html" class="nav-name">Ezra Myers</a>
   <ul class="nav-links">
+    <li><a href="index.html" id="nav-home">Home</a></li>
     <li><a href="works.html" id="nav-works" aria-current="page">Works</a></li>
     <li><a href="laws-of-folk.html" id="nav-lof">Laws of Folk</a></li>
     <li><a href="research.html" id="nav-research">Research</a></li>
@@ -991,7 +1049,7 @@
       <!-- Work 1 -->
       <div class="work-item">
         <div class="work-image-placeholder work-image-wide">
-          <img src="pay-the-devil-jab-jab-ezra-myers.jpg" alt="Pay the Devil / Jab Jab by Ezra Myers, large-scale drawing and collage exploring Trinidadian Carnival and Afro-diasporic folklore." width="1400" height="1276" loading="lazy" decoding="async">
+          <img class="image-reveal" src="pay-the-devil-jab-jab-ezra-myers.jpg" alt="Pay the Devil by Ezra Myers, large-scale drawing and collage exploring Trinidadian Carnival, Jab Jab and Afro-diasporic folklore." width="1400" height="1276" loading="lazy" decoding="async">
         </div>
         <div class="work-meta">
           <h2 class="work-title">Pay the Devil</h2>
@@ -1000,8 +1058,7 @@
             <span>Ink, charcoal, collage and gold leaf on Bockingford watercolour paper</span>
             <span>2026</span>
           </div>
-          <p class="work-text">In Trinidadian carnival tradition, the Jab Jab moves through the street covered in grease or paint, chains rattling, demanding tribute from onlookers. The figure carries a controlled threat, an inversion of power that carnival makes briefly possible.</p>
-          <p class="work-text" style="margin-top: 1em;">Pay the Devil places this figure inside a composition that refuses celebration. Gold leaf sits against dense mark making and distortion, holding the body between ritual presence and historical pressure. The work is not about carnival. It is about what carnival contains.</p>
+          <p class="work-text">Rooted in Trinidadian Carnival tradition, Pay the Devil draws on the Jab Jab / Jab Molassie figure to explore masquerade, reclamation, ritual and the transformation of imposed imagery into cultural power.</p>
           <div class="artist-note">
             <span class="label">Artist Note</span>
             <p class="note-lead">They called us devils.</p>
@@ -1019,7 +1076,7 @@
       <!-- Work 2 -->
       <div class="work-item">
         <div class="work-image-placeholder work-image-wide">
-          <img src="mary-in-the-light-ezra-myers.jpg" alt="Mary in the Light by Ezra Myers, large-scale drawing exploring Mary Seacole, ancestral presence and Black historical visibility." width="1200" height="1600" loading="lazy" decoding="async">
+          <img class="image-reveal" src="mary-in-the-light-ezra-myers.jpg" alt="Mary in the Light by Ezra Myers, large-scale drawing exploring Mary Seacole, ancestral presence and Black historical visibility." width="1200" height="1600" loading="lazy" decoding="async">
         </div>
         <div class="work-meta">
           <h2 class="work-title">Mary in the Light</h2>
@@ -1028,15 +1085,13 @@
             <span>Ink, charcoal and collage on Bockingford watercolour paper</span>
             <span>2019</span>
           </div>
-          <p class="work-text">The figure is held inside light and density, somewhere between portrait and architecture. Mary in the Light begins the language the later work develops: the face as site, the body as carrier, the image as a place where what cannot be named still gathers.</p>
+          <p class="work-text body-text">The figure is held inside light and density, somewhere between portrait and architecture. Mary in the Light begins the language the later work develops: the face as site, the body as carrier, the image as a place where what cannot be named still gathers.</p>
           <div class="artist-note">
             <span class="label">Artist Note</span>
-            <p class="note-lead">This is not a portrait of Mary Seacole.</p>
-            <p class="note-lead">It is a portrait of what she carried.</p>
-            <p>She came to serve. She was refused. She came anyway. She crossed the Crimea, healed both sides of a war that was not hers, was rumoured against, diminished, ignored by the institutions that should have recognised her, and kept going. Her weapons were knowledge, spiritual intuition, herbal remedy, and an absolute refusal to be reduced by the conditions she was subjected to.</p>
-            <p>The sculpture of Mary Seacole that stands in Westminster is a monument to everything she embodied. This work draws from that image, but it does not stop there. Past, present and future are encoded into the same plane. A ghost moves in the background. A shadow falls in a direction the light should not allow. What she was, what she became, and what she continues to mean to the women who came after her all occupy the same space simultaneously.</p>
-            <p>There is a haunted quality to this work that is intentional. It does not make her weak. It makes her whole. The world has always required Black women to be infallible, made of steel, beyond the reach of ordinary human weight. This work acknowledges that requirement without surrendering to it. She is depicted in full strength and in full complexity, because to show only one is to participate in the same diminishment she spent her life resisting.</p>
-            <p>She is in the light. And the light holds everything.</p>
+            <p class="note-lead artist-note-text">This is not a portrait of Mary Seacole.</p>
+            <p class="note-lead artist-note-text">It is a portrait of what she carried.</p>
+            <p class="body-text">This work does not depict that tradition. It inhabits it.</p>
+            <p class="body-text">Gold leaf sits beside charcoal and ink. The sacred and the earthly, the elevated and the raw, held within one image.</p>
           </div>
           <span class="work-status">Part of Laws of Folk</span>
         </div>
@@ -1045,15 +1100,16 @@
       <!-- Work 3 -->
       <div class="work-item">
         <div class="work-image-placeholder work-image-wide paper-blend">
-          <img src="jay-ezra-myers.jpg" alt="Jay by Ezra Myers, ink and charcoal drawing on paper." width="912" height="1300" loading="lazy" decoding="async">
+          <img class="image-reveal" src="jay-ezra-myers.jpg" alt="Jay by Ezra Myers, ink and charcoal drawing on paper." width="912" height="1300" loading="lazy" decoding="async">
         </div>
         <div class="work-meta">
           <h2 class="work-title">Jay</h2>
           <div class="work-details">
             <span>55.9 × 38.1 cm</span>
             <span>Ink and charcoal on paper</span>
+            <span>2014</span>
           </div>
-          <p class="work-text">Jay is shown as an origin point. Smaller in scale, direct in its address, it marks an early moment in the visual language that the larger works would later deepen.</p>
+          <p class="work-text">Jay is an earlier work where the language of the practice began to take shape. Created in 2014, it is included as a point of origin within the wider development of Laws of Folk, showing the early formation of Myers' interest in expression, shadow, sincerity and the architecture of the face.</p>
           <div class="artist-note">
             <span class="label">Artist Note</span>
             <p class="note-lead">This is where the language began.</p>
@@ -1110,5 +1166,87 @@
 
 <!-- ══════════════════════════════════ RESEARCH ══════════════════════════════════ -->
 </main>
+<script>
+(function () {
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ignoredSelector = 'nav, footer, button, .nav-links, .logo, .icon, [data-no-reveal]';
+  var imageSelector = 'img.image-reveal, main img:not([data-no-reveal])';
+  var textSelector = [
+    'main h1',
+    'main h2',
+    'main h3',
+    'main p',
+    'main .label',
+    'main .hero-link',
+    'main .route-number',
+    'main .route-title',
+    'main .work-details',
+    'main .work-status',
+    'main .recognition-category-label',
+    'main .recognition-item-name',
+    'main .recognition-item-detail',
+    'main .research-section-title',
+    'main .research-section-body'
+  ].join(', ');
+
+  function isSignificantImage(image) {
+    if (image.closest(ignoredSelector)) return false;
+    var width = Number(image.getAttribute('width')) || image.naturalWidth || 0;
+    var height = Number(image.getAttribute('height')) || image.naturalHeight || 0;
+    return image.classList.contains('image-reveal') || width >= 240 || height >= 240;
+  }
+
+  function isSignificantText(element) {
+    if (element.closest(ignoredSelector)) return false;
+    if (!element.textContent || !element.textContent.trim()) return false;
+    return true;
+  }
+
+  function reveal(element) {
+    var show = function () {
+      element.classList.add('is-revealed');
+    };
+
+    if (element.tagName === 'IMG' && !element.complete) {
+      element.addEventListener('load', show, { once: true });
+      element.addEventListener('error', show, { once: true });
+    } else {
+      show();
+    }
+  }
+
+  var images = Array.prototype.slice.call(document.querySelectorAll(imageSelector)).filter(isSignificantImage);
+  var textItems = Array.prototype.slice.call(document.querySelectorAll(textSelector)).filter(isSignificantText);
+  var revealItems = images.concat(textItems);
+
+  images.forEach(function (image) {
+    image.classList.add('image-reveal');
+  });
+
+  textItems.forEach(function (item) {
+    item.classList.add('text-reveal');
+  });
+
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    revealItems.forEach(reveal);
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      reveal(entry.target);
+      observer.unobserve(entry.target);
+    });
+  }, {
+    rootMargin: '0px 0px -8% 0px',
+    threshold: 0.12
+  });
+
+  revealItems.forEach(function (item) {
+    observer.observe(item);
+  });
+}());
+</script>
 </body>
 </html>
