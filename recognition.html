@@ -17,7 +17,7 @@
 <meta name="twitter:image" content="https://www.ezramyers.com/assets/images/royal-drawing-school-ezra-myers-king-charles.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preload" as="image" href="ezra-myers-laws-of-folk.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="assets/images/royal-drawing-school-ezra-myers-king-charles.jpg?v=baseline-final-2" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <script>
@@ -27,6 +27,46 @@
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   img { display: block; max-width: 100%; }
+
+  .work-image-placeholder,
+  .about-image-placeholder,
+  .recognition-figure {
+    position: relative;
+    background: #F5F2ED;
+  }
+
+  .work-image-placeholder::before,
+  .about-image-placeholder::before,
+  .recognition-figure::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: #F5F2ED;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 140ms ease;
+  }
+
+  html.js body:not(.media-ready) .work-image-placeholder::before,
+  html.js body:not(.media-ready) .about-image-placeholder::before,
+  html.js body:not(.media-ready) .recognition-figure::before {
+    opacity: 1;
+  }
+
+  body.media-ready .work-image-placeholder::before,
+  body.media-ready .about-image-placeholder::before,
+  body.media-ready .recognition-figure::before {
+    opacity: 0;
+  }
+
+  .work-image-placeholder img,
+  .about-image-placeholder img,
+  .recognition-figure img {
+    position: relative;
+    z-index: 1;
+    background: #F5F2ED;
+  }
 
   .image-reveal,
   .text-reveal {
@@ -83,6 +123,7 @@
   :root {
     --black: #0A0A0A;
     --off-white: #F5F2ED;
+    --cream: #F5F2ED;
     --gold: #B8955A;
     --gold-light: #D4B483;
     --mid: #6B6460;
@@ -920,6 +961,13 @@
     letter-spacing: 0.04em;
   }
 
+  footer a {
+    color: var(--mid);
+    text-decoration: none;
+    border-bottom: 0.5px solid rgba(184,149,90,0.55);
+    padding-bottom: 3px;
+  }
+
   /* ── UTILITY ── */
   .gold-accent {
     color: var(--gold);
@@ -968,6 +1016,32 @@
     .programme-grid { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 12px; text-align: center; }
   }
+
+  /* Final image flash prevention: keep artwork, portrait and recognition media on a paper-coloured base. */
+  .work-image-placeholder,
+  .about-image-placeholder,
+  .recognition-figure {
+    background: #F5F2ED !important;
+  }
+
+  .work-image-placeholder::before,
+  .about-image-placeholder::before,
+  .recognition-figure::before {
+    background: #F5F2ED !important;
+    transition: none !important;
+  }
+
+  .work-image-placeholder img,
+  .about-image-placeholder img,
+  .recognition-figure img {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+    background: #F5F2ED !important;
+  }
+
 </style>
 
 </head>
@@ -978,9 +1052,8 @@
 <nav>
   <a href="index.html" class="nav-name">Ezra Myers</a>
   <ul class="nav-links">
-    <li><a href="index.html" id="nav-home">Home</a></li>
     <li><a href="works.html" id="nav-works">Works</a></li>
-    <li><a href="laws-of-folk.html" id="nav-lof">Laws of Folk</a></li>
+    <li><a href="https://lawsoffolk.com" id="nav-lof" target="_blank" rel="noopener noreferrer">Laws of Folk</a></li>
     <li><a href="research.html" id="nav-research">Research</a></li>
     <li><a href="recognition.html" id="nav-recognition" aria-current="page">Recognition</a></li>
     <li><a href="about.html" id="nav-about">About</a></li>
@@ -1011,7 +1084,7 @@
       </div>
       <div class="recognition-items">
         <figure class="recognition-figure">
-          <img class="image-reveal" src="assets/images/royal-drawing-school-ezra-myers-king-charles.jpg" alt="Ezra Myers presenting work during a Royal Drawing School student exhibition viewing attended by His Majesty King Charles III." width="1240" height="1242" loading="lazy" decoding="async">
+          <img src="assets/images/royal-drawing-school-ezra-myers-king-charles.jpg?v=baseline-final-2" alt="Ezra Myers presenting work during a Royal Drawing School student exhibition viewing attended by His Majesty King Charles III." width="1240" height="1242" loading="eager" decoding="sync">
           <figcaption>Royal Drawing School, London. Ezra Myers presenting work during a student exhibition viewing attended by His Majesty King Charles III. The work was selected during the viewing and acquired by his office shortly afterwards.</figcaption>
         </figure>
       </div>
@@ -1111,6 +1184,7 @@
 
   <footer>
     <p>Ezra Myers Studio, London. Drawing, collage and moving image.</p>
+    <p><a href="https://lawsoffolk.com" target="_blank" rel="noopener noreferrer">Laws of Folk</a></p>
     <p>© Ezra Myers. All works protected by copyright. London, 2026</p>
   </footer>
 </div>
@@ -1119,9 +1193,55 @@
 </main>
 <script>
 (function () {
+  function markMediaReady() {
+    var mediaImages = Array.prototype.slice.call(document.querySelectorAll('.work-image-placeholder img, .about-image-placeholder img, .recognition-figure img'));
+
+    if (!mediaImages.length) {
+      document.body.classList.add('media-ready');
+      return;
+    }
+
+    var waitForImage = function (image) {
+      return new Promise(function (resolve) {
+        var finish = function () {
+          if (image.decode) {
+            image.decode().catch(function () {}).then(resolve);
+          } else {
+            resolve();
+          }
+        };
+
+        if (image.complete && image.naturalWidth > 0) {
+          finish();
+        } else {
+          image.addEventListener('load', finish, { once: true });
+          image.addEventListener('error', resolve, { once: true });
+        }
+      });
+    };
+
+    Promise.all(mediaImages.map(waitForImage)).then(function () {
+      document.body.classList.add('media-ready');
+    });
+
+    window.addEventListener('load', function () {
+      window.setTimeout(function () {
+        document.body.classList.add('media-ready');
+      }, 2200);
+    }, { once: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', markMediaReady, { once: true });
+  } else {
+    markMediaReady();
+  }
+}());
+
+(function () {
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var ignoredSelector = 'nav, footer, button, .nav-links, .logo, .icon, [data-no-reveal]';
-  var imageSelector = 'img.image-reveal, main img:not([data-no-reveal])';
+  var imageSelector = '.home-hero-image';
   var textSelector = [
     'main h1',
     'main h2',

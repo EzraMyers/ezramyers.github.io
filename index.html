@@ -56,7 +56,7 @@
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preload" as="image" href="ezra-myers-laws-of-folk.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="ezra-myers-laws-of-folk.jpg?v=baseline-final-2" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <script>
@@ -66,6 +66,46 @@
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   img { display: block; max-width: 100%; }
+
+  .work-image-placeholder,
+  .about-image-placeholder,
+  .recognition-figure {
+    position: relative;
+    background: #F5F2ED;
+  }
+
+  .work-image-placeholder::before,
+  .about-image-placeholder::before,
+  .recognition-figure::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: #F5F2ED;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 140ms ease;
+  }
+
+  html.js body:not(.media-ready) .work-image-placeholder::before,
+  html.js body:not(.media-ready) .about-image-placeholder::before,
+  html.js body:not(.media-ready) .recognition-figure::before {
+    opacity: 1;
+  }
+
+  body.media-ready .work-image-placeholder::before,
+  body.media-ready .about-image-placeholder::before,
+  body.media-ready .recognition-figure::before {
+    opacity: 0;
+  }
+
+  .work-image-placeholder img,
+  .about-image-placeholder img,
+  .recognition-figure img {
+    position: relative;
+    z-index: 1;
+    background: #F5F2ED;
+  }
 
   .image-reveal,
   .text-reveal {
@@ -122,6 +162,7 @@
   :root {
     --black: #0A0A0A;
     --off-white: #F5F2ED;
+    --cream: #F5F2ED;
     --gold: #B8955A;
     --gold-light: #D4B483;
     --mid: #6B6460;
@@ -366,6 +407,42 @@
     font-weight: 300;
     line-height: 1.65;
     color: var(--black);
+  }
+
+  .home-lof-feature {
+    padding: 72px 0;
+    border-top: 0.5px solid rgba(184,149,90,0.3);
+  }
+
+  .home-lof-feature .text-block {
+    max-width: 900px;
+  }
+
+  .home-lof-feature h2 {
+    font-size: clamp(44px, 6vw, 78px);
+    font-weight: 300;
+    line-height: 1.02;
+    margin: 20px 0 24px;
+  }
+
+  .home-lof-feature p {
+    max-width: 680px;
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.65;
+    color: var(--mid);
+  }
+
+  .home-lof-link {
+    display: inline-block;
+    margin-top: 28px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 0.5px solid rgba(184,149,90,0.65);
+    padding-bottom: 5px;
   }
 
   .home-three-routes {
@@ -970,6 +1047,13 @@
     letter-spacing: 0.04em;
   }
 
+  footer a {
+    color: var(--mid);
+    text-decoration: none;
+    border-bottom: 0.5px solid rgba(184,149,90,0.55);
+    padding-bottom: 3px;
+  }
+
   /* ── UTILITY ── */
   .gold-accent {
     color: var(--gold);
@@ -1018,6 +1102,32 @@
     .programme-grid { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 12px; text-align: center; }
   }
+
+  /* Final image flash prevention: keep artwork, portrait and recognition media on a paper-coloured base. */
+  .work-image-placeholder,
+  .about-image-placeholder,
+  .recognition-figure {
+    background: #F5F2ED !important;
+  }
+
+  .work-image-placeholder::before,
+  .about-image-placeholder::before,
+  .recognition-figure::before {
+    background: #F5F2ED !important;
+    transition: none !important;
+  }
+
+  .work-image-placeholder img,
+  .about-image-placeholder img,
+  .recognition-figure img {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+    background: #F5F2ED !important;
+  }
+
 </style>
 
 </head>
@@ -1028,9 +1138,8 @@
 <nav>
   <a href="index.html" class="nav-name" aria-current="page">Ezra Myers</a>
   <ul class="nav-links">
-    <li><a href="index.html" id="nav-home" aria-current="page">Home</a></li>
     <li><a href="works.html" id="nav-works">Works</a></li>
-    <li><a href="laws-of-folk.html" id="nav-lof">Laws of Folk</a></li>
+    <li><a href="https://lawsoffolk.com" id="nav-lof" target="_blank" rel="noopener noreferrer">Laws of Folk</a></li>
     <li><a href="research.html" id="nav-research">Research</a></li>
     <li><a href="recognition.html" id="nav-recognition">Recognition</a></li>
     <li><a href="about.html" id="nav-about">About</a></li>
@@ -1045,7 +1154,7 @@
 
   <div class="hero">
     <img
-      src="ezra-myers-laws-of-folk.jpg"
+      src="ezra-myers-laws-of-folk.jpg?v=baseline-final-2"
       alt="Pay the Devil by Ezra Myers, large-scale drawing and collage exploring Trinidadian Carnival, Jab Jab and Afro-diasporic folklore."
       class="image-reveal hero-image home-hero-image"
       width="1800" height="900"
@@ -1056,7 +1165,7 @@
       <h1>Ezra Myers</h1>
       <p class="hero-positioning">A British-Caribbean artist working with folklore, ritual and the inherited codes of Afro-diasporic life.</p>
       <div class="hero-links">
-        <a href="laws-of-folk.html" class="hero-link">Laws of Folk, Exhibition 2026</a>
+        <a href="https://lawsoffolk.com" class="hero-link" target="_blank" rel="noopener noreferrer">Laws of Folk, Exhibition 2026</a>
         <a href="works.html" class="hero-link">View Works</a>
         <a href="recognition.html" class="hero-link">Recognition</a>
       </div>
@@ -1072,10 +1181,19 @@
     </div>
   </section>
 
+  <section class="home-lof-feature">
+    <div class="text-block">
+      <span class="label">Exhibition</span>
+      <h2>Laws of Folk</h2>
+      <p>A forthcoming solo exhibition by Ezra Myers, opening in London during Black History Month. The project explores folklore, ritual and the inherited codes of Afro-diasporic life.</p>
+      <a class="home-lof-link" href="https://lawsoffolk.com" target="_blank" rel="noopener noreferrer">Explore Laws of Folk</a>
+    </div>
+  </section>
+
   <div class="rule"></div>
 
   <div class="home-three-routes">
-    <a class="route-item" href="laws-of-folk.html">
+    <a class="route-item" href="https://lawsoffolk.com" target="_blank" rel="noopener noreferrer">
       <span class="route-number">I</span>
       <span class="route-title">Laws of Folk</span>
       <p class="route-desc">A major solo exhibition. October 2026. Black History Month. The body of work Myers has been building toward.</p>
@@ -1083,7 +1201,7 @@
     <a class="route-item" href="works.html">
       <span class="route-number">II</span>
       <span class="route-title">Works</span>
-      <p class="route-desc">Large scale figurative drawing. Ink, charcoal, collage, gold leaf. Life size works approaching institutional scale.</p>
+      <p class="route-desc">Large scale figurative drawing and works on paper shaped by ritual, mask, portrait and inherited cultural law.</p>
     </a>
     <a class="route-item" href="recognition.html">
       <span class="route-number">III</span>
@@ -1094,6 +1212,7 @@
 
   <footer>
     <p>Ezra Myers Studio, London. Drawing, collage and moving image.</p>
+    <p><a href="https://lawsoffolk.com" target="_blank" rel="noopener noreferrer">Laws of Folk</a></p>
     <p>© Ezra Myers. All works protected by copyright. London, 2026</p>
   </footer>
 </div>
@@ -1102,9 +1221,55 @@
 </main>
 <script>
 (function () {
+  function markMediaReady() {
+    var mediaImages = Array.prototype.slice.call(document.querySelectorAll('.work-image-placeholder img, .about-image-placeholder img, .recognition-figure img'));
+
+    if (!mediaImages.length) {
+      document.body.classList.add('media-ready');
+      return;
+    }
+
+    var waitForImage = function (image) {
+      return new Promise(function (resolve) {
+        var finish = function () {
+          if (image.decode) {
+            image.decode().catch(function () {}).then(resolve);
+          } else {
+            resolve();
+          }
+        };
+
+        if (image.complete && image.naturalWidth > 0) {
+          finish();
+        } else {
+          image.addEventListener('load', finish, { once: true });
+          image.addEventListener('error', resolve, { once: true });
+        }
+      });
+    };
+
+    Promise.all(mediaImages.map(waitForImage)).then(function () {
+      document.body.classList.add('media-ready');
+    });
+
+    window.addEventListener('load', function () {
+      window.setTimeout(function () {
+        document.body.classList.add('media-ready');
+      }, 2200);
+    }, { once: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', markMediaReady, { once: true });
+  } else {
+    markMediaReady();
+  }
+}());
+
+(function () {
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var ignoredSelector = 'nav, footer, button, .nav-links, .logo, .icon, [data-no-reveal]';
-  var imageSelector = 'img.image-reveal, main img:not([data-no-reveal])';
+  var imageSelector = '.home-hero-image';
   var textSelector = [
     'main h1',
     'main h2',
